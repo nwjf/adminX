@@ -22,7 +22,10 @@ export function Icon(props: IconProps) {
 export function registerIcons(app: App) {
   const icons = elIcons as any;
   for (const i in icons) {
-    app.component(`${icons[i].name}`, icons[i]);
+    // 大写
+    app.component(`el-icon-${icons[i].name}`, icons[i]);
+    // 小写
+    app.component(`el-icon-${icons[i].name.toLowerCase()}`, icons[i]);
   }
   app.component('Icon', Icon);
 }

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router';
 import Layout from '../layout/index.vue';
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: '首页',
