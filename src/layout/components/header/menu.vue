@@ -32,8 +32,8 @@ const onFullScreen = () => {
     <div @click="onFullScreen" class="header-menu-item">
       <Icon
         class="header-menu-icon"
-        color="#ccc"
-        name="FullScreen"
+        color="#000"
+        name="el-icon-FullScreen"
         size="18"
       />
     </div>
@@ -48,8 +48,9 @@ const onFullScreen = () => {
   height: 100%;
   display: flex;
   align-items: center;
-  background: #1d1e1f;
-  color: #CFD3DC;
+  // background: #1d1e1f;
+  // color: #CFD3DC;
+  color: #141414;
   .header-menu-item {
     height: 100%;
     width: 40px;

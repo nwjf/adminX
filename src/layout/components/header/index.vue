@@ -18,5 +18,6 @@ import Menu from './menu.vue';
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid red;
 }
 </style>

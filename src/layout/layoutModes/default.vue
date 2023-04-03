@@ -2,6 +2,8 @@
 // layout default
 import Header from '../components/header/index.vue';
 import Aside from '../components/aside/index.vue';
+import Main from '../components/main.vue';
+import Footer from '../components/footer/index.vue';
   
 </script>
 
@@ -11,6 +13,7 @@ import Aside from '../components/aside/index.vue';
     <el-container class="content-wrapper">
       <Header />
       <Main />
+      <Footer />
     </el-container>
   </el-container>
 </template>
