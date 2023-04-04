@@ -40,6 +40,12 @@ export const usePermissionStore = defineStore('permissionStore', () => {
         icon: 'el-icon-Film',
         children: [],
       },
+      {
+        name: '图标',
+        path: '/icon',
+        icon: 'el-icon-Notification',
+        children: [],
+      }
     ],
     // sidebar active
     sidebarActive: '',
