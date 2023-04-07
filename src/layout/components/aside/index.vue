@@ -22,7 +22,6 @@ const menuWidth = computed(() => getMenuWidth());
 .layout-aside-warp {
   width: v-bind(menuWidth);
   transition: all .24s linear;
-  border: 1px solid red;
   .el-menu {
     border-right: none;
   }

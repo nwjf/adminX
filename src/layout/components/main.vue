@@ -3,13 +3,18 @@
 
 <template>
   <el-main class="layout-main">
-    <!-- 123 -->
-    <router-view></router-view>
+    <div class="layout-main-box">
+      <router-view></router-view>
+    </div>
   </el-main>
 </template>
 
 <style lang="scss" scoped>
 .layout-main {
-  border: 1px solid red;
+  background: #f8f8f8;
+  .layout-main-box {
+    background: #fff;
+    padding: 24px;
+  }
 }
 </style>
