@@ -6,10 +6,10 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: '首页',
     component: Layout,
-    redirect: '/login',
+    redirect: '/login1',
     children: [
       {
-        path: '/login',
+        path: '/login1',
         name: 'login',
         component: () => import('../views/Login.vue')
       },
@@ -20,6 +20,11 @@ export const routes: Array<RouteRecordRaw> = [
       }
     ]
   },
+  {
+    path: '/login',
+    name: '登录页',
+    component: () => import('../views/Login.vue'),
+  }
 ];
 
 const router: Router = createRouter({

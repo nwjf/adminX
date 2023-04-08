@@ -4,7 +4,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolve } from 'path';
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig  => {
-  console.log('mode', mode, process.env);
   return {
     plugins: [
       vue(),
