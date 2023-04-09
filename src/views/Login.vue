@@ -84,7 +84,9 @@ export default defineComponent({
 import { reactive, ref } from 'vue';
 import * as pageBubble from '../utils/pageBubble';
 import { ElForm } from 'element-plus';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const formRef = ref<InstanceType<typeof ElForm>>();
 
 // 表单数据
@@ -102,8 +104,11 @@ const rules = reactive({
 
 // 提交
 const onSubmit = (formRef: any) => {
-  console.log('====', formRef.validate);
-  // formRef.validate((valid) => {});
+  formRef.validate((valid: boolean) => {
+    if (!valid) return false;
+    // login
+    router.push('/');
+  });
 };
 
 </script>
