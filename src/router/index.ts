@@ -6,7 +6,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: '首页',
     component: Layout,
-    redirect: '/login1',
+    redirect: '/403',
     children: [
       {
         path: '/login1',

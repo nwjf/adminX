@@ -1,8 +1,20 @@
 <template>
   <div class="error-component">
-    <img class="error-num" src="../../../assets/error/4.png" alt="error-4">
-    <img class="error-num" src="../../../assets/error/0.png" alt="error-4">
-    <img class="error-num" src="../../../assets/error/4.png" alt="error-4">
+    <template v-if="page === '403'">
+      <img class="error-num" src="../../../assets/error/4.png" alt="error-4">
+      <img class="error-num" src="../../../assets/error/0.png" alt="error-4">
+      <img class="error-num" src="../../../assets/error/3.png" alt="error-4">
+    </template>
+    <template v-if="page === '404'">
+      <img class="error-num" src="../../../assets/error/4.png" alt="error-4">
+      <img class="error-num" src="../../../assets/error/0.png" alt="error-4">
+      <img class="error-num" src="../../../assets/error/4.png" alt="error-4">
+    </template>
+    <template v-if="page === '500'">
+      <img class="error-num" src="../../../assets/error/5.png" alt="error-4">
+      <img class="error-num" src="../../../assets/error/0.png" alt="error-4">
+      <img class="error-num" src="../../../assets/error/0.png" alt="error-4">
+    </template>
 
     <img class="error-bg" src="../../../assets/error/cloud_shadow.png" alt="error-4">
     <img class="error-cloud1" src="../../../assets/error/cloud_mini.png" alt="error-4">
@@ -29,8 +41,8 @@ export default defineComponent({
   width: calc(143px * 3);
   margin: auto;
   position: relative;
-  margin-top: 50%;
-  transform: translateY(-100%);
+  top: 50%;
+  transform: translateY(-50%);
   .error-num {
     width: 143px;
     position: relative;

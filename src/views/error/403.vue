@@ -2,7 +2,7 @@
   <div class="error-page">
     <Common page="403">
       <div class="error-title">该页面不存在</div>
-      <div class="error-btn">返回</div>
+      <!-- <div class="error-btn">返回</div> -->
     </Common>
   </div>
 </template>

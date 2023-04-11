@@ -45,7 +45,29 @@ export const usePermissionStore = defineStore('permissionStore', () => {
         path: '/icon',
         icon: 'el-icon-Notification',
         children: [],
-      }
+      },
+      {
+        name: '错误页面',
+        path: '/icon',
+        icon: 'el-icon-WarningFilled',
+        children: [
+          {
+            name: '403',
+            path: '/403',
+            icon: '',
+          },
+          {
+            name: '404',
+            path: '/404',
+            icon: '',
+          },
+          {
+            name: '500',
+            path: '/500',
+            icon: '',
+          },
+        ],
+      },
     ],
     // sidebar active
     sidebarActive: '',
