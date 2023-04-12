@@ -1,5 +1,7 @@
-<script lang="ts">
+<script lang="ts" setup>
 // header user info
+const onAdminInfo = () => {};
+const onLogout = () => {};
 </script>
 
 <template>

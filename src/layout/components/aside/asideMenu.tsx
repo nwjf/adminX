@@ -3,15 +3,25 @@
  * @returns vnode
  */
 import { usePermissionStore } from '../../../store/permission';
-import { useConfigStore } from '../../../store/config'
+import { useConfigStore } from '../../../store/config';
+import { useRouter, useRoute } from 'vue-router';
 
 
 export default function AsideMenu() {
   const { permission } = usePermissionStore();
   const { layout } = useConfigStore();
+  const router = useRouter();
+  const route = useRoute();
+
+  const onSelect = (path: string) => {
+    router.push(path);
+  };
 
   return (
-    <el-menu collapse={layout.menuCollapse}>
+    <el-menu
+      collapse={layout.menuCollapse}
+      onSelect={onSelect}
+      default-active={route.path}>
       {
         permission.sidebar.map(item => {
           return <AsideMenuItem route={item}></AsideMenuItem>

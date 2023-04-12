@@ -6,20 +6,36 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: '首页',
     component: Layout,
-    redirect: '/403',
+    redirect: '/home1',
     children: [
-      {
-        path: '/login1',
-        name: 'login',
-        component: () => import('../views/Login.vue')
-      },
       {
         path: '/icon',
         name: 'icon',
         component: () => import('../views/Icon.vue'),
-      }
-    ]
+      },
+      {
+        path: '/home1',
+        name: 'home1',
+        component: () => import('../views/Home.vue'),
+      },
+      {
+        path: '/home2',
+        name: 'home2',
+        component: () => import('../views/Home.vue'),
+      },
+      {
+        path: '/home3',
+        name: 'home3',
+        component: () => import('../views/Home.vue'),
+      },
+      {
+        path: '/home4',
+        name: 'home4',
+        component: () => import('../views/Home.vue'),
+      },
+    ],
   },
+
   {
     path: '/login',
     name: '登录页',
@@ -39,6 +55,10 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/500',
     name: 'error 500',
     component: () => import('../views/error/500.vue'),
+  },
+  {
+    path: '/*',
+    redirect: '/404',
   },
 ];
 
