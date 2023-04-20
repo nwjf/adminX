@@ -12,8 +12,10 @@ import Footer from '../components/footer/index.vue';
     <Aside />
     <el-container class="content-wrapper">
       <Header />
-      <Main />
-      <Footer />
+      <el-main class="layout-main">
+        <Main />
+        <Footer />
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -27,5 +29,8 @@ import Footer from '../components/footer/index.vue';
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
+.layout-main {
+  background: #f8f8f8;
 }
 </style>

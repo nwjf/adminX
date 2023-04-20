@@ -2,19 +2,15 @@
 </script>
 
 <template>
-  <el-main class="layout-main">
-    <div class="layout-main-box">
-      <router-view></router-view>
-    </div>
-  </el-main>
+  <div class="layout-main-box">
+    <router-view></router-view>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.layout-main {
-  background: #f8f8f8;
-  .layout-main-box {
-    background: #fff;
-    padding: 24px;
-  }
+
+.layout-main-box {
+  background: #fff;
+  padding: 24px;
 }
 </style>
