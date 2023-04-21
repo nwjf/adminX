@@ -9,7 +9,9 @@ vue3 + element plus + typescript + scss + vite
 
 ### document
 [vue3 document](https://cn.vuejs.org/api/)
+
 [element plus document](https://element-plus.gitee.io/zh-CN/)
+
 [vite document](https://vitejs.cn/)
 
 ### git 提交规范
