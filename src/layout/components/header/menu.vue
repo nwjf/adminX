@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import screenfull from 'screenfull';
 import { ElMessage } from 'element-plus';
 import UserInfo from './userInfo.vue';
+import Config from '../config/index.vue';
 
 interface State {
   isFullScreen: boolean;
@@ -23,6 +24,11 @@ const onFullScreen = () => {
     state.isFullScreen = screenfull.isFullscreen;
   });
 };
+
+const configRef = ref();
+const onShowConfigSetting = () => {
+  configRef.value.onShow();
+};
 </script>
 
 <template>
@@ -40,6 +46,18 @@ const onFullScreen = () => {
 
     <!-- 用户信息 -->
     <user-info />
+
+    <!-- 设置 -->
+    <!-- <div @click="onShowConfigSetting" class="header-menu-item">
+      <Icon
+        class="header-menu-icon"
+        color="#000"
+        name="el-icon-Setting"
+        size="18"
+      />
+    </div> -->
+    <!-- 设置的配置组建 -->
+    <Config ref="configRef" />
   </div>
 </template>
 
@@ -48,8 +66,6 @@ const onFullScreen = () => {
   height: 100%;
   display: flex;
   align-items: center;
-  // background: #1d1e1f;
-  // color: #CFD3DC;
   color: #141414;
   .header-menu-item {
     height: 100%;
@@ -57,6 +73,7 @@ const onFullScreen = () => {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
 }
 </style>

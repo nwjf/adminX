@@ -16,7 +16,7 @@ const onMenuCollapse = () => {
         src="https://demo.buildadmin.com/assets/logo-8000aeec.png"
         alt="logo">
       <div
-        class="logo-name">超级无敌后台</div>
+        class="logo-name">eleAdmin</div>
     </div>
     <Icon
       class="logo-icon"

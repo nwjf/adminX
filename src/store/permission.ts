@@ -11,26 +11,14 @@ export const usePermissionStore = defineStore('permissionStore', () => {
     // sidebar
     sidebar: [
       {
-        name: 'home1',
-        path: '/home1',
-        icon: 'el-icon-Film',
+        name: 'document',
+        path: '/document',
+        icon: 'el-icon-Document',
         children: [],
       },
       {
-        name: 'home2',
-        path: '/home2',
-        icon: 'el-icon-Film',
-        children: [],
-      },
-      {
-        name: 'home3',
-        path: '/home3',
-        icon: 'el-icon-Film',
-        children: [],
-      },
-      {
-        name: 'home4',
-        path: '/home4',
+        name: 'home',
+        path: '/home',
         icon: 'el-icon-Film',
         children: [],
       },

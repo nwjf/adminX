@@ -14,23 +14,13 @@ export const routes: Array<RouteRecordRaw> = [
         component: () => import('../views/Icon.vue'),
       },
       {
-        path: '/home1',
-        name: 'home1',
-        component: () => import('../views/Home.vue'),
+        path: '/document',
+        name: 'document',
+        component: () => import('../views/document.vue'),
       },
       {
-        path: '/home2',
-        name: 'home2',
-        component: () => import('../views/Home.vue'),
-      },
-      {
-        path: '/home3',
-        name: 'home3',
-        component: () => import('../views/Home.vue'),
-      },
-      {
-        path: '/home4',
-        name: 'home4',
+        path: '/home',
+        name: 'home',
         component: () => import('../views/Home.vue'),
       },
     ],
