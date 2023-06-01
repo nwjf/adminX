@@ -85,14 +85,17 @@ import { reactive, ref } from 'vue';
 import * as pageBubble from '../utils/pageBubble';
 import { ElForm } from 'element-plus';
 import { useRouter } from 'vue-router';
+import { useUserStore } from '../store/user';
 
 const router = useRouter();
 const formRef = ref<InstanceType<typeof ElForm>>();
 
+const userStore = useUserStore();
+
 // 表单数据
 const form = reactive({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: 'admin',
   loading: false,
 });
 
@@ -107,7 +110,10 @@ const onSubmit = (formRef: any) => {
   formRef.validate((valid: boolean) => {
     if (!valid) return false;
     // login
-    router.push('/');
+    if (form.username === 'admin' && form.password === 'admin') {
+      userStore.setUserInfo();
+      router.push('/');
+    }
   });
 };
 

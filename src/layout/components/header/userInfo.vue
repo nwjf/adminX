@@ -1,7 +1,17 @@
 <script lang="ts" setup>
 // header user info
+import { useRouter } from 'vue-router';
+import { useUserStore } from '../../../store/user';
+
+const router = useRouter();
+
+const userStore = useUserStore();
+
 const onAdminInfo = () => {};
-const onLogout = () => {};
+const onLogout = async () => {
+  await userStore.logout();
+  router.push('/login');
+};
 </script>
 
 <template>

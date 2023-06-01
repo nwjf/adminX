@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router';
 import Layout from '../layout/index.vue';
+import { useUserStore } from '../store/user';
 
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: '首页',
     component: Layout,
-    redirect: '/home1',
+    redirect: '/document',
     children: [
       {
         path: '/icon',
@@ -55,6 +56,17 @@ export const routes: Array<RouteRecordRaw> = [
 const router: Router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const userStore = useUserStore();
+  if (to.path !== '/login' && !userStore.userInfo.uid) {
+    next('/login');
+  }
+  if (to.path === '/login' && userStore.userInfo.uid) {
+    next('/');
+  }
+  next();
 });
 
 export default router;
