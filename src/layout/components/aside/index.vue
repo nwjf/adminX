@@ -1,3 +1,8 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({ name: 'Layout/aside' });
+</script>
+
 <script lang="ts" setup>
 // layout aside
 import { computed } from 'vue';
@@ -20,8 +25,11 @@ const menuWidth = computed(() => getMenuWidth());
 
 <style lang="scss" scoped>
 .layout-aside-warp {
+  height: 100%;
   width: v-bind(menuWidth);
   transition: all .24s linear;
+  // background: #fff;
+  background: var(--x-bg-color-overlay);
   .el-menu {
     border-right: none;
   }

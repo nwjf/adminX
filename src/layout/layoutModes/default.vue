@@ -31,6 +31,7 @@ import Footer from '../components/footer/index.vue';
   height: 100%;
 }
 .layout-main {
-  background: #f8f8f8;
+  // background: #f8f8f8;
+  background: var(--x-bg-color);
 }
 </style>

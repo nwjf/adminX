@@ -1,0 +1,14 @@
+html.dark {
+  --x-bg-color: #141414;
+  --x-bg-color-page: #0a0a0a;
+  --x-bg-color-overlay: #1d1e1f;
+  --x-border-color: #58585b;
+  --x-color: #CFD3DC;
+
+  --el-bg-color: var(--x-bg-color);
+  --el-menu-bg-color: var(--x-bg-color-overlay);
+  --el-menu-text-color: var(--x-color);
+  --el-menu-hover-bg-color: var(--x-bg-color);
+
+  color: var(--x-color);
+}

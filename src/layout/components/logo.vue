@@ -16,7 +16,7 @@ const onMenuCollapse = () => {
         src="https://demo.buildadmin.com/assets/logo-8000aeec.png"
         alt="logo">
       <div
-        class="logo-name">eleAdmin</div>
+        class="logo-name">AdminX</div>
     </div>
     <Icon
       class="logo-icon"

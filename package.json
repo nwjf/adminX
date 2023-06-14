@@ -1,5 +1,5 @@
 {
-  "name": "admin-cli-vue3-ts-vite",
+  "name": "AdminX",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/js-cookie": "^3.0.3",
     "element-plus": "^2.3.0",
+    "js-cookie": "^3.0.5",
     "pinia": "^2.0.33",
     "screenfull": "^6.0.2",
     "vue": "^3.2.45",

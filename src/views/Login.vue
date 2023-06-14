@@ -54,6 +54,10 @@
             </el-form-item>
 
             <el-form-item>
+              <el-checkbox v-model="form.moreLogin" label="保持会话" size="large" />
+            </el-form-item>
+
+            <el-form-item>
               <el-button
                 :loading="form.loading"
                 class="submit-button"
@@ -86,6 +90,7 @@ import * as pageBubble from '../utils/pageBubble';
 import { ElForm } from 'element-plus';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '../store/user';
+import Cookies from 'js-cookie';
 
 const router = useRouter();
 const formRef = ref<InstanceType<typeof ElForm>>();
@@ -97,6 +102,7 @@ const form = reactive({
   username: 'admin',
   password: 'admin',
   loading: false,
+  moreLogin: false,
 });
 
 // 表单验证规则
@@ -107,11 +113,22 @@ const rules = reactive({
 
 // 提交
 const onSubmit = (formRef: any) => {
-  formRef.validate((valid: boolean) => {
+  formRef.validate(async (valid: boolean) => {
     if (!valid) return false;
     // login
     if (form.username === 'admin' && form.password === 'admin') {
-      userStore.setUserInfo();
+      const userInfo = {
+        name: 'admin',
+        uid: '123',
+      };
+      if (form.moreLogin) {
+        Cookies.set('eleAdmin', JSON.stringify(userInfo), { expires: 7 });
+      }
+      else {
+        Cookies.set('eleAdmin', JSON.stringify(userInfo), { expires: 1 })
+      }
+
+      await userStore.setUserInfo(userInfo);
       router.push('/');
     }
   });

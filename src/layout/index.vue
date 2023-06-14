@@ -2,19 +2,28 @@
 <script lang="ts">
   // layout index
   import Default from './layoutModes/default.vue';
+  import Float from './layoutModes/float.vue';
+  import Config from './components/config/index.vue';
+  import { useConfigStore} from '../store/config';
+
   export default {
     name: 'Layout/index',
-    components: { Default },
+    components: {
+      Default,
+      Float,
+      Config,
+    },
+    setup() {
+      const { layout } = useConfigStore();
+
+      return {
+        layout,
+      };
+    },
   }
 </script>
 
-<script lang="ts" setup></script>
-
-
 <template>
-  <component is="Default" />
+  <component :is="layout.layoutMode" />
+  <Config />
 </template>
-
-<style lang="scss" scoped>
-
-</style>

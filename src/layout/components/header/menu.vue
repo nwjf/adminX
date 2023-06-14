@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-import { reactive, ref } from 'vue';
+import { reactive, ref, toRefs } from 'vue';
 import screenfull from 'screenfull';
 import { ElMessage } from 'element-plus';
 import UserInfo from './userInfo.vue';
-import Config from '../config/index.vue';
+import { useConfigStore } from '../../../store/config';
+
+const { setShowConfig } = toRefs(useConfigStore());
 
 interface State {
   isFullScreen: boolean;
@@ -25,10 +27,6 @@ const onFullScreen = () => {
   });
 };
 
-const configRef = ref();
-const onShowConfigSetting = () => {
-  configRef.value.onShow();
-};
 </script>
 
 <template>
@@ -38,7 +36,6 @@ const onShowConfigSetting = () => {
     <div @click="onFullScreen" class="header-menu-item">
       <Icon
         class="header-menu-icon"
-        color="#000"
         name="el-icon-FullScreen"
         size="18"
       />
@@ -48,16 +45,13 @@ const onShowConfigSetting = () => {
     <user-info />
 
     <!-- 设置 -->
-    <!-- <div @click="onShowConfigSetting" class="header-menu-item">
+    <div @click="setShowConfig(true)" class="header-menu-item">
       <Icon
         class="header-menu-icon"
-        color="#000"
         name="el-icon-Setting"
         size="18"
       />
-    </div> -->
-    <!-- 设置的配置组建 -->
-    <Config ref="configRef" />
+    </div>
   </div>
 </template>
 
@@ -66,7 +60,7 @@ const onShowConfigSetting = () => {
   height: 100%;
   display: flex;
   align-items: center;
-  color: #141414;
+  // color: #141414;
   .header-menu-item {
     height: 100%;
     width: 40px;

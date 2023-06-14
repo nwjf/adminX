@@ -10,7 +10,8 @@
 <style lang="scss" scoped>
 
 .layout-main-box {
-  background: #fff;
+  // background: #fff;
+  background: var(--x-bg-color-overlay);
   padding: 24px;
 }
 </style>

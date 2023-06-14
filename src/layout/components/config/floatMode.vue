@@ -2,7 +2,7 @@
 import { defineComponent, toRefs } from 'vue';
 
 export default defineComponent({
-  name: 'LayoutModeDefault',
+  name: 'LayoutModeFloat',
   props: {
     active: { type: Boolean, default: false },
   },
@@ -19,8 +19,11 @@ export default defineComponent({
 <template>
   <div class="default-mode-warp" :class="{ active }">
     <div class="mode-side"></div>
-    <div class="mode-header"></div>
-    <div class="mode-active">{{ active ? '默认' : '经典' }}</div>
+    <div class="mode-right">
+      <div class="mode-header"></div>
+      <div class="mode-content"></div>
+    </div>
+    <div class="mode-active">{{ active ? '默认' : '浮动' }}</div>
   </div>
 </template>
 
@@ -41,14 +44,30 @@ export default defineComponent({
     }
   }
   .mode-side {
-    width: 23px;
-    height: 100%;
+    width: 10px;
+    height: calc(100% - 10px);
     background: #363637;
+    margin: 5px;
+    margin-right: 4px;
   }
-  .mode-header {
-    width: 100%;
-    height: 10px;
-    background: #4C4D4F;
+  .mode-right {
+    flex: 1;
+    padding-right: 5px;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 50px;
+    .mode-header {
+      width: 100%;
+      height: 10px;
+      background: #4C4D4F;
+      margin-top: 5px;
+    }
+    .mode-content {
+      width: 100%;
+      height: 72px;
+      background: #4C4D4F;
+      margin-top: 4px;
+    }
   }
   .mode-active {
     width: 50px;
@@ -56,8 +75,8 @@ export default defineComponent({
     border-radius: 50%;
     border: 1px solid #409eff;
     color: #409eff;
-    font-weight: 700;
     position: absolute;
+    font-weight: 700;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

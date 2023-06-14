@@ -8,6 +8,7 @@ export const routes: Array<RouteRecordRaw> = [
     name: '首页',
     component: Layout,
     redirect: '/document',
+    meta: { auth: true },
     children: [
       {
         path: '/icon',
@@ -35,21 +36,25 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: '/403',
     name: 'error 403',
+    meta: { auth: false },
     component: () => import('../views/error/403.vue'),
   },
   {
     path: '/404',
     name: 'error 404',
+    meta: { auth: false },
     component: () => import('../views/error/404.vue'),
   },
   {
     path: '/500',
     name: 'error 500',
+    meta: { auth: false },
     component: () => import('../views/error/500.vue'),
   },
   {
     path: '/*',
     redirect: '/404',
+    meta: { auth: false },
   },
 ];
 
@@ -58,15 +63,32 @@ const router: Router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  const userStore = useUserStore();
-  if (to.path !== '/login' && !userStore.userInfo.uid) {
-    next('/login');
+router.beforeEach(async (to, from, next) => {
+  const { userInfo, getCookies } = useUserStore();
+  // 登录拦截
+  if (!to.meta.auth && to.path !== '/login') {
+    next();
   }
-  if (to.path === '/login' && userStore.userInfo.uid) {
-    next('/');
+  else if (!userInfo.uid) {
+    const info = await getCookies();
+    if (!info.uid && to.path !== '/login') {
+      next('/login');
+    }
+    else if (info.uid && to.path === '/login') {
+      next('/');
+    }
+    else {
+      next();
+    }
   }
-  next();
+  else {
+    if (to.path === '/login') {
+      next('/');
+    }
+    else {
+      next();
+    }
+  }
 });
 
 export default router;
