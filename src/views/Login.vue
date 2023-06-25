@@ -214,9 +214,6 @@ const onSubmit = (formRef: any) => {
 
 // 暗黑样式
 @at-root .dark {
-  .bubble {
-    background: url(/@/assets/bg-dark.jpg) repeat;
-  }
   .login {
     .login-box {
       background: #161b22;

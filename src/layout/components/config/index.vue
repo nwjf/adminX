@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { defineComponent, toRefs } from 'vue';
 import DefaultMode from './defaultMode.vue';
 import FloatMode from './floatMode.vue';
@@ -24,15 +24,11 @@ export default defineComponent({
       setTheme,
     } = useConfigStore();
 
-    const onThemeModeChange = (d) => {
+    const onThemeModeChange = (d: string) => {
       setTheme('mode', d);
-      document.querySelector('html').classList.add();
-      const html = document.querySelector('html');
-      html.classList.forEach((item) => {
-        html.classList.remove(item);
-      });
+      const html: HTMLElement = document.querySelector('html') as HTMLElement;
+      html.classList.remove('dark', 'white');
       html.classList.add(d);
-
     };
 
     return {
@@ -54,8 +50,7 @@ export default defineComponent({
   <el-drawer
     :model-value="showConfig"
     title="布局配置"
-    :direction="direction"
-    :before-close="handleClose"
+    direction="rtl"
     size="310px"
     @close="setShowConfig(false)"
   >

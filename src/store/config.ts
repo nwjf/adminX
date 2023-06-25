@@ -11,6 +11,9 @@ export interface Layout {
   menuCollapseWidth: number;
   menuCollapse: boolean;
 }
+export interface Theme {
+  mode: string;
+}
 
 export const useConfigStore = defineStore('configStore', () => {
 
@@ -27,10 +30,10 @@ export const useConfigStore = defineStore('configStore', () => {
     menuCollapse: false,
   });
 
-  const theme: any = reactive({
+  const theme: Theme = reactive({
     mode: 'white', // 主题模式
   });
-  function setTheme(key: string, value: any) {
+  function setTheme(key: keyof Theme, value: string) {
     theme[key] = value;
   }
 

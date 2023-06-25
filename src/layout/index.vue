@@ -4,7 +4,7 @@
   import Default from './layoutModes/default.vue';
   import Float from './layoutModes/float.vue';
   import Config from './components/config/index.vue';
-  import { useConfigStore} from '../store/config';
+  import { useConfigStore} from '@/store/config';
 
   export default {
     name: 'Layout/index',

@@ -5,13 +5,14 @@ import { resolve } from 'path';
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig  => {
   return {
+    base: './',
     plugins: [
       vue(),
-      vueJsx({ include: /\.[jt]sx?$/ }),
+      vueJsx({ include: /(\.[jt]sx?$)/ }),
     ],
     resolve: {
       alias: {
-        '@': resolve(__dirname, './scr/')
+        '@': resolve(__dirname, './src/')
       }
     },
     server: {
@@ -19,6 +20,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig  => {
       port: 8080,
       open: false,
       proxy: {},
+    },
+    build: {
+      outDir: './dist'
     },
   };
 });

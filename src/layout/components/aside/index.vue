@@ -7,9 +7,8 @@ export default defineComponent({ name: 'Layout/aside' });
 // layout aside
 import { computed } from 'vue';
 import Logo from '../logo.vue';
-import MenuTree from './menuTree.vue';
-import AsideMenu from './asideMenu.tsx';
-import { useConfigStore } from '../../../store/config';
+import AsideMenu from './asideMenu';
+import { useConfigStore } from '@/store/config';
 
 const { getMenuWidth } = useConfigStore();
 const menuWidth = computed(() => getMenuWidth());
@@ -18,7 +17,6 @@ const menuWidth = computed(() => getMenuWidth());
 <template>
   <el-aside class="layout-aside-warp">
     <Logo />
-    <!-- <MenuTree /> -->
     <AsideMenu />
   </el-aside>
 </template>

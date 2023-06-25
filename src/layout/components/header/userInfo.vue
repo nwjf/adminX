@@ -23,7 +23,7 @@ const onLogout = async () => {
     <template #reference>
       <div class="userinfo-pop-h">
         <el-avatar :size="25" fit="fill">
-          <img src="adminInfo.avatar" alt="" />
+          <img src="" alt="" />
         </el-avatar>
         <div class="userinfo-name">nickname</div>
       </div>
@@ -32,7 +32,7 @@ const onLogout = async () => {
     <div class="userinfo-pop-b">
       <div class="userinfo-base">
         <el-avatar :size="70" fit="fill">
-          <img src="adminInfo.avatar" alt="" />
+          <img src="" alt="" />
         </el-avatar>
         <div class="userinfo-other">
           <div class="userinfo-name">user name</div>

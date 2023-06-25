@@ -10,9 +10,9 @@ import { registerIcons } from './utils/registerIcons';
 import pinia from './store/index';
 
 const app = createApp(App);
+registerIcons(app);
 app.use(router);
 app.use(pinia);
 app.use(ElementPlus);
 app.mount('#app');
 
-registerIcons(app);

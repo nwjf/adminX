@@ -2,9 +2,10 @@
  * aside menu
  * @returns vnode
  */
-import { usePermissionStore } from '../../../store/permission';
-import { useConfigStore } from '../../../store/config';
+import { usePermissionStore } from '@/store/permission';
+import { useConfigStore } from '@/store/config';
 import { useRouter, useRoute } from 'vue-router';
+import { Icon } from '@/utils/registerIcons'; 
 
 
 export default function AsideMenu() {
@@ -34,7 +35,7 @@ export default function AsideMenu() {
 
 
 
-function AsideMenuItem({ route }) {
+function AsideMenuItem({ route }: { route: any;}) {
   const children = route.children || [];
   const itemDom = <>
     <Icon name={ route.icon } />
@@ -44,7 +45,7 @@ function AsideMenuItem({ route }) {
   if (children.length) {
     return (
       <el-sub-menu v-slots={{ title: itemDom }} index={route.path}>
-        { children.map(item => <AsideMenuItem route={ item } />) }
+        { children.map((item: any) => <AsideMenuItem route={ item } />) }
       </el-sub-menu>
     );
   }
