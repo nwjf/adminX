@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory, Router, RouteRecordRaw, createWebHashHistory } from 'vue-router';
 import Layout from '../layout/index.vue';
 import { useUserStore } from '../store/user';
 
@@ -59,7 +59,7 @@ export const routes: Array<RouteRecordRaw> = [
 ];
 
 const router: Router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 
