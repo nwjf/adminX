@@ -1,8 +1,9 @@
 <script lang="ts">
-import { defineComponent, toRefs } from 'vue';
+import { defineComponent, toRefs, onMounted, watch } from 'vue';
 import DefaultMode from './defaultMode.vue';
 import FloatMode from './floatMode.vue';
 import { useConfigStore } from '../../../store/config';
+import { useWindowSize } from '@vueuse/core';
 
 
 export default defineComponent({
@@ -30,6 +31,17 @@ export default defineComponent({
       html.classList.remove('dark', 'white');
       html.classList.add(d);
     };
+
+    const { width } = useWindowSize();
+    watch(
+      width,
+      (w) => {
+        if (w <= 500) {
+          setLayout('menuCollapse', true);
+          setLayout('layoutMode', 'Default');
+        }
+      }
+    );
 
     return {
       showConfig,
