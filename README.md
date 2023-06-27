@@ -35,15 +35,22 @@
 <img style="display: block; width: 100%;" src="https://gdc.kg.qq.com/6008/5ce13e5d06e754b5c88f62df425d54f1.png">
 
 
-### document
-- [vue3 document](https://cn.vuejs.org/api/)
-- [element plus document](https://element-plus.gitee.io/zh-CN/)
-- [vite document](https://vitejs.cn/)
-- [pinia document](https://pinia.vuejs.org/zh/)
-- [vue router document](https://router.vuejs.org/zh/)
+### Documentation
+- [Vue](https://cn.vuejs.org/api/)
+- [element plus](https://element-plus.gitee.io/zh-CN/)
+- [Vite](https://vitejs.cn/)
+- [pinia](https://pinia.vuejs.org/zh/)
+- [Vue router](https://router.vuejs.org/zh/)
+- [vueuse](https://vueuse.org/cor.htm)
+- [vueuse github](https://github.com/vueuse/vueuse)
+- [sass](https://github.com/sass/sass)
+- [TypeScript](https://github.com/microsoft/TypeScript)
+- [Axios](https://github.com/axios/axios)
 
-### script
+### Script
 ```shell
+# install
+npm install
 # run
 npm run dev
 # build

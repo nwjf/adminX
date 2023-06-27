@@ -16,7 +16,7 @@ const onMenuCollapse = () => {
       <div class="layout-logo-content" v-if="!layout.menuCollapse">
         <img
           class="logo-img"
-          src="https://demo.buildadmin.com/assets/logo-8000aeec.png"
+          src="https://image-70559.picnjc.qpic.cn/albumpic/c92a43f34d6902446575e4b6bf7be956.png"
           alt="logo">
         <div
           class="logo-name">AdminX</div>
@@ -33,7 +33,7 @@ const onMenuCollapse = () => {
       <div class="layout-logo-content">
         <img
           class="logo-img"
-          src="https://demo.buildadmin.com/assets/logo-8000aeec.png"
+          src="https://image-70559.picnjc.qpic.cn/albumpic/c92a43f34d6902446575e4b6bf7be956.png"
           alt="logo">
         <div
           class="logo-name">AdminX</div>
