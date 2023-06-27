@@ -9,7 +9,7 @@ import Footer from '../components/footer/index.vue';
 
 <template>
   <el-container class="layout-container">
-    <Aside />
+    <Aside class="layout-default-aside" />
     <el-container class="content-wrapper">
       <Header />
       <el-main class="layout-main">
@@ -31,7 +31,11 @@ import Footer from '../components/footer/index.vue';
   height: 100%;
 }
 .layout-main {
-  // background: #f8f8f8;
   background: var(--x-bg-color);
+}
+@media screen and (max-width: 500px) {
+  .layout-default-aside {
+    display: none;
+  }
 }
 </style>

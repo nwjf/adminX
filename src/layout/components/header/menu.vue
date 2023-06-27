@@ -33,7 +33,7 @@ const onFullScreen = () => {
   <div class="header-menu">
 
     <!-- 全屏 -->
-    <div @click="onFullScreen" class="header-menu-item">
+    <div @click="onFullScreen" class="header-menu-item hide">
       <Icon
         class="header-menu-icon"
         name="el-icon-FullScreen"
@@ -45,7 +45,7 @@ const onFullScreen = () => {
     <user-info />
 
     <!-- 设置 -->
-    <div @click="setShowConfig(true)" class="header-menu-item">
+    <div @click="setShowConfig(true)" class="header-menu-item hide">
       <Icon
         class="header-menu-icon"
         name="el-icon-Setting"
@@ -68,6 +68,9 @@ const onFullScreen = () => {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+  }
+  @media screen and (max-width: 500px) {
+    .hide { display: none; }
   }
 }
 </style>

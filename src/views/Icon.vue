@@ -140,9 +140,10 @@ export default defineComponent({
   .icon-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .icon-item {
-    width: calc(100% / 7);
+    width: 140px;
     height: 90px;
     border: 1px solid #ccc;
     text-align: center;

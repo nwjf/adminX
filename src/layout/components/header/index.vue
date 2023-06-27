@@ -5,12 +5,15 @@ export default defineComponent({ name: 'Layout/header' });
 
 <script lang="ts" setup>
 import Menu from './menu.vue';
+import Logo from '../logo.vue';
 </script>
 
 <template>
   <el-header class="header-el">
     <div class="header-index">
-      <div></div>
+      <div>
+        <Logo class="logo"/>
+      </div>
       <Menu />
     </div>
   </el-header>
@@ -26,5 +29,9 @@ import Menu from './menu.vue';
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.header-index .logo { display: none; }
+@media screen and (max-width: 500px) {
+  .header-index .logo { display: block; }
 }
 </style>

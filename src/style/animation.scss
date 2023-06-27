@@ -1,0 +1,23 @@
+// width
+// <transition name="width"></transition>
+.width-enter-active,
+.width-leave-active {
+  transition: all .3s ease;
+  overflow: hidden;
+}
+.width-enter-from,
+.width-leave-to {
+  width: 0px !important;
+}
+
+// opacity
+// <transition name="opacity"></transition>
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: all .3s ease;
+  overflow: hidden;
+}
+.opacity-enter-from,
+.opacity-leave-to {
+  opacity: 0 !important;
+}
