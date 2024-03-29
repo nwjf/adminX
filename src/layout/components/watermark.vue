@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 // 水印
-import { defineProps, withDefaults, onMounted } from 'vue';
+import { defineProps, withDefaults, onMounted, ref, watchEffect } from 'vue';
+import { useConfigStore } from '../../store/config';
+
+const configStore = useConfigStore();
 
 interface Props {
   textAlign: CanvasTextAlign;
@@ -28,7 +31,9 @@ const props = withDefaults(
   }
 );
 
-const getWatermarkPic = (text: string) => {
+const watermarkPic = ref<string>('');
+
+const getWatermarkPic = (text: string, props: Props) => {
   const canvas: HTMLCanvasElement = document.createElement('canvas');
   canvas.setAttribute('width', props.width);
   canvas.setAttribute('height', props.height);
@@ -41,46 +46,29 @@ const getWatermarkPic = (text: string) => {
   ctx.translate(-parseFloat(props.width) / 4, parseFloat(props.height) / 4);
   ctx.fillText(text || '请勿外传', parseFloat(props.width) / 2, parseFloat(props.height) / 2);
   const base64Url: string = canvas.toDataURL();
+  watermarkPic.value = base64Url;
+  console.log('base64Url', base64Url);
   return base64Url;
 }
 
-const setWatermark = () => {
-  const url = getWatermarkPic('github.com/nwjf技术支持');
-  const styleStr = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: ${props.zIndex};
-    pointer-events: none;
-    background-repeat: repeat;
-    background-image: url('${url}')`;
-  const watermarkDiv = document.createElement('div');
-  watermarkDiv.setAttribute('style', styleStr);
-  watermarkDiv.classList.add('watermark-warp');
-  document.body.appendChild(watermarkDiv);
-
-  const MutationObserver = window.MutationObserver;
-  if (MutationObserver) {
-    const wMParent = new MutationObserver(() => {
-      const dom = document.querySelector('.watermark-warp');
-      if (!dom || (dom && dom.getAttribute('style') !== styleStr)) {
-        wMParent.disconnect();
-        setWatermark();
-      }
-    });
-    wMParent.observe(document.body, {
-      childList: true,
-    });
-  }
-};
-
-
-onMounted(() => {
-  setWatermark();
+watchEffect(() => {
+  const fillStyle = configStore.theme.mode === 'white' ? '#EDEEF0' : '#141414';
+  getWatermarkPic('adminx', { ...props, fillStyle });
 });
 
 </script>
 
-<template></template>
+<template>
+  <div class="watermark-warp" :style="{backgroundImage: `url(${watermarkPic})`}"></div>
+</template>
+
+<style lang="scss" scoped>
+.watermark-warp {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+</style>
